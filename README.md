@@ -65,7 +65,7 @@ curl -X POST "http://127.0.0.1:8000/validate" \
   -H "Content-Type: application/json" \
   -d '{"query": "Show me customer count"}'
 ```
-## 📌 7. Example Supported Queries
+## 📌 4. Example Supported Queries
 
 The system currently supports the following types of natural language queries:
 
@@ -79,26 +79,53 @@ The system currently supports the following types of natural language queries:
 - "Show me sales trend over time"
 
 
-## 📌 4. Deployment  
-You can deploy this backend on **Render, Railway, or Heroku**.  
+## 📌 5. Deployment  
+You can deploy this backend on **Render** (alternatively, Railway or Heroku also work).
 
-Example (Deploying on Railway):  
-1. Create a **new project** on [Railway](https://railway.app/).  
-2. Link your GitHub repository.  
-3. Set environment variables (if needed).  
-4. Deploy! 🎉  
+### **Example (Deploying on Render):**
+1. **Create a New Web Service** on [Render](https://render.com/).
+2. **Link Your GitHub Repository** to Render.
+3. **Configure the Build Command:**  
+   ```
+   pip install -r requirements.txt
+   ```
+4. **Configure the Start Command:**
 
-## 📌 5. Authentication  
+    ``` uvicorn main:app --host=0.0.0.0 --port=$PORT ```
+5. Set Environment Variables (if needed) in the Render dashboard.
+
+6. Deploy! 🎉
+   Monitor the logs and verify your API is running properly.
+
+
+
+
+## 📌 6. Authentication  
 This API uses **Bearer Token authentication**. Include the token in the `Authorization` header like this:  
 ```
 Authorization: Bearer your-secret-token
 ```
 
-## 📌 6. Tech Stack  
+## 📌 7. Postman Collection
+A Postman collection is included in this repository to help you test the API endpoints.
+
+How to Import the Collection:
+
+1- Open Postman.
+
+2- Click on the Import button.
+
+3- Select the postman_collection.json file from the repository.
+
+4- Once imported, you’ll see all the endpoints (login, query, explain, validate) available for testing.
+
+Alternatively, you can use the direct link to the file if you're viewing it on GitHub: postman_collection.json
+
+## 📌 8. Tech Stack  
 - **Language:** Python  
 - **Framework:** FastAPI  
 - **Database:** SQLite (Mock data)  
 
-## 📌 7. Contributors  
+## 📌 9. Contributors  
 👤 **Unnati**  
 📧 Email: unnatisinghrajawat@gmail.com  
