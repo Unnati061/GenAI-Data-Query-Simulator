@@ -1,0 +1,149 @@
+{
+    "info": {
+      "name": "Gen AI Analytics API Collection",
+      "_postman_id": "d3f7a9d8-1234-5678-90ab-cdef12345678",
+      "description": "This collection contains endpoints for the Gen AI Analytics API, including endpoints to login, process queries, explain queries, and validate queries.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Root Endpoint",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8000/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              ""
+            ]
+          }
+        }
+      },
+      {
+        "name": "Login",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"demo\",\n  \"password\": \"password\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/login",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "login"
+            ]
+          }
+        }
+      },
+      {
+        "name": "Query",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer mysecuretoken"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"query\": \"Show me total sales\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/query",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "query"
+            ]
+          }
+        }
+      },
+      {
+        "name": "Explain",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer mysecuretoken"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"query\": \"Show me sales by month\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/explain",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "explain"
+            ]
+          }
+        }
+      },
+      {
+        "name": "Validate",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer mysecuretoken"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"query\": \"Show me customer count\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/validate",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "validate"
+            ]
+          }
+        }
+      }
+    ]
+  }
+  
