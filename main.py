@@ -8,6 +8,12 @@ import json
 from database import init_db
 import re
 
+
+
+
+
+
+
 # Initialize the FastAPI app
 app = FastAPI(
     title="Gen AI Analytics API",
@@ -179,6 +185,9 @@ def generate_mock_data(sql_query: str):
         }
 
 # --- Endpoints ---
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the API!"}
 
 @app.post("/query")
 def process_query(request: QueryRequest, credentials: HTTPAuthorizationCredentials = Depends(authenticate)):
@@ -287,3 +296,4 @@ async def login(username: str = "demo", password: str = "password"):
         return {"access_token": API_KEY, "token_type": "bearer"}
     else:
         raise HTTPException(status_code=401, detail="Invalid credentials")
+    
