@@ -56,9 +56,9 @@ def insert_mock_data():
     conn.commit()
     conn.close()
 
-
+# Ensure the database and tables exist before inserting data
+init_db()
 insert_mock_data()
-
 
 def execute_query(query, params=()):
     """Execute a query and return the results."""
@@ -73,6 +73,3 @@ def execute_query(query, params=()):
         return {"error": str(e)}
     finally:
         conn.close()
-
-# Initialize the database on import
-init_db()

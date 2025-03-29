@@ -5,7 +5,7 @@ import sqlite3
 import random
 from datetime import datetime, timedelta
 import json
-from database import init_db
+from database import init_db, insert_mock_data, execute_query
 import re
 
 
@@ -185,9 +185,18 @@ def generate_mock_data(sql_query: str):
         }
 
 # --- Endpoints ---
+init_db()
+insert_mock_data()
+
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the API!"}
+
+@app.get("/sales")
+def get_sales():
+    query = "SELECT * FROM sales"
+    result = execute_query(query)
+    return {"sales": result}
 
 @app.post("/query")
 def process_query(request: QueryRequest, credentials: HTTPAuthorizationCredentials = Depends(authenticate)):
